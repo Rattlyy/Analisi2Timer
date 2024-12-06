@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="it">
+<html lang="it" style="background-color: rgb(17 24 39)">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -48,7 +48,7 @@
         }
     </style>
 </head>
-<body class="min-h-screen bg-gray-900 text-white">
+<body class="min-h-screen text-white" style="display: none">
 <div>
     <div id="warning-message" class="flex flex-col w-full min-h-screen items-center justify-center text-center">
         <h1 class="text-6xl font-bold mb-10">Ruota il tuo dispositivo</h1>
@@ -61,8 +61,8 @@
     </div>
 </div>
 
+
 <script>
-    document.body.hidden = true
     document.addEventListener('DOMContentLoaded', () => {
         new FlipDown(Date.parse("Jan 15 2025 08:00:00") / 1000).start()
         document.getElementById("flipdown").classList.remove("flipdown__theme-dark");
@@ -87,9 +87,8 @@
             }
         });
 
-        document.body.hidden = false
+        document.body.style.display = "block";
     });
 </script>
-
 </body>
 </html>
