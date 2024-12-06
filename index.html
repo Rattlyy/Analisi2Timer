@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Analisi 2 Timer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flipdown@0.3.2/dist/flipdown.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/flipdown@0.3.2/dist/flipdown.min.css" rel="stylesheet">
+
+    <style type="text/css">
+        #warning-message {
+            display: none;
+        }
+
+        @media only screen and (orientation: portrait) {
+            #wrapper {
+                display: none;
+            }
+
+            #warning-message {
+                display: flex;
+            }
+        }
+
+        @media only screen and (orientation: landscape) {
+            #warning-message {
+                display: none;
+            }
+        }
+
+        .flipdown.flipdown__theme-light .rotor,
+        .flipdown.flipdown__theme-light .rotor-top,
+        .flipdown.flipdown__theme-light .rotor-leaf-front {
+            color: rgb(17 24 39);
+            background-color: #DDDDDD;
+        }
+
+        .flipdown.flipdown__theme-light .rotor-bottom,
+        .flipdown.flipdown__theme-light .rotor-leaf-rear {
+            color: rgb(17 24 39);
+            background-color: #EEEEEE;
+        }
+    </style>
+</head>
+<body class="min-h-screen bg-gray-900 text-white">
+<div>
+    <div id="warning-message" class="flex flex-col w-full min-h-screen items-center justify-center text-center">
+        <h1 class="text-6xl font-bold mb-10">Ruota il tuo dispositivo</h1>
+        <p class="text-4xl">Ruota il tuo dispositivo in orizzontale per visualizzare la pagina.</p>
+    </div>
+
+    <div id="wrapper" class="flex flex-col items-center justify-center w-full min-h-screen text-center">
+        <h1 class="text-6xl lg:text-8xl font-bold mb-10">Quanto manca ad Analisi 2?</h1>
+        <div id="flipdown" class="flipdown flipdown__theme-light" style="zoom: 150%;"></div>
+    </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        new FlipDown(Date.parse("Jan 15 2025 08:00:00") / 1000).start()
+        document.getElementById("flipdown").classList.remove("flipdown__theme-dark");
+
+        document.querySelectorAll(".rotor-group-heading").forEach((el) => {
+            switch (el.dataset.before) {
+                case "Days":
+                    el.dataset.before = "Giorni";
+                    break;
+
+                case "Hours":
+                    el.dataset.before = "Ore";
+                    break;
+
+                case "Minutes":
+                    el.dataset.before = "Minuti";
+                    break;
+
+                case "Seconds":
+                    el.dataset.before = "Secondi";
+                    break;
+            }
+        });
+    });
+</script>
+
+</body>
+</html>
