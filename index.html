@@ -62,6 +62,7 @@
 </div>
 
 <script>
+    document.body.hidden = true
     document.addEventListener('DOMContentLoaded', () => {
         new FlipDown(Date.parse("Jan 15 2025 08:00:00") / 1000).start()
         document.getElementById("flipdown").classList.remove("flipdown__theme-dark");
@@ -85,6 +86,8 @@
                     break;
             }
         });
+
+        document.body.hidden = false
     });
 </script>
 
